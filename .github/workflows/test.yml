@@ -11,7 +11,7 @@ jobs:
         run: |
           set -eux
           podman version
-          podman run -i --security-opt=seccomp=unconfined --log-level=debug --rm quay.io/fedoraci/fedora:eln-x86_64 sh -exc "echo AAAAA"
+          podman run -i --log-level=debug --rm quay.io/fedoraci/fedora:eln-x86_64 sh -exc "echo AAAAA"
 
   test-rawhide:
     name: Test rawhide
