@@ -21,4 +21,4 @@ jobs:
         run: |
           set -eux
           podman version
-          podman run -i --security-opt=seccomp=unconfined --log-level=debug --rm registry.fedoraproject.org/fedora:rawhide sh -exc "echo AAAAA"
+          podman run -i --log-level=debug --rm registry.fedoraproject.org/fedora:rawhide sh -exc "echo AAAAA"
