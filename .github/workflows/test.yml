@@ -15,6 +15,7 @@ jobs:
               libsystemd-dev libcap-dev libseccomp-dev libyajl-dev \
               go-md2man libtool autoconf python3 automake
           cd crun
+          git checkout 0.18
           ./autogen.sh
           ./configure
           make
