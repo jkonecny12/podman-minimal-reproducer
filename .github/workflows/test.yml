@@ -3,14 +3,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  test-eln:
     name: Test
     runs-on: ubuntu-20.04
-    env:
-      CI_TAG: '${{ matrix.container-tag }}'
     steps:
       - name: test
         run: |
           set -eux
           podman version
           podman run -i --security-opt=seccomp=unconfined --log-level=debug --rm quay.io/fedoraci/fedora:eln-x86_64 sh -exc "echo AAAAA"
+
+  test-rawhide:
+    name: Test rawhide
+    runs-on: ubuntu-20.04
+    steps:
+      - name: test
+        run: |
+          set -eux
+          podman version
+          podman run -i --security-opt=seccomp=unconfined --log-level=debug --rm registry.fedoraproject.org/fedora:rawhide sh -exc "echo AAAAA"
