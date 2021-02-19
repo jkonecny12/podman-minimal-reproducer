@@ -1,0 +1,16 @@
+name: Podman test
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+    env:
+      CI_TAG: '${{ matrix.container-tag }}'
+    steps:
+      - name: test
+        run: |
+          set -eux
+          podman version
+          podman run -i --security-opt=seccomp=unconfined --log-level=debug --rm quay.io/fedoraci/fedora:eln-x86_64 sh -exc "echo AAAAA"
