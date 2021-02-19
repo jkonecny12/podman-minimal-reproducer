@@ -10,7 +10,6 @@ jobs:
       - name: test
         run: |
           set -eux
-          podman version
           podman run -i --log-level=debug --rm quay.io/fedoraci/fedora:eln-x86_64 sh -exc "echo AAAAA"
 
   test-rawhide:
@@ -20,5 +19,15 @@ jobs:
       - name: test
         run: |
           set -eux
-          podman version
           podman run -i --log-level=debug --rm registry.fedoraproject.org/fedora:rawhide sh -exc "echo AAAAA"
+
+  get-info:
+    name: Get podman info
+    runs-on: ubuntu-20.04
+    steps:
+      - name: get podman info
+        run: |
+          set -eux
+          podman info --debug
+          apt list podman
+          podman version
