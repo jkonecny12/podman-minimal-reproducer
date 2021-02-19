@@ -23,6 +23,7 @@ jobs:
       - name: test
         run: |
           set -eux
+          crun --version
           sudo mv /usr/bin/runc /usr/bin/runc-test
           podman run -i --log-level=debug --rm quay.io/fedoraci/fedora:eln-x86_64 sh -exc "echo AAAAA"
 
