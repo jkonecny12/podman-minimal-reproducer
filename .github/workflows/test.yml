@@ -32,3 +32,6 @@ jobs:
           apt list podman
           podman version
           crun --version
+
+          runc --version
+          apt-cache search runc
