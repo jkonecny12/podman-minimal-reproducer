@@ -4,7 +4,7 @@ on:
 
 jobs:
   test-eln:
-    name: Test
+    name: Test ELN
     runs-on: ubuntu-20.04
     steps:
       - name: test
