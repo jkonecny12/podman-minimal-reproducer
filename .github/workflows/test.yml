@@ -31,3 +31,4 @@ jobs:
           podman info --debug
           apt list podman
           podman version
+          crun --version
